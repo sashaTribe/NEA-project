@@ -100,8 +100,9 @@ def insert_critical_values():
         cursor.execute(sql)
         result = cursor.fetchone()
         df = result[0]
+        # 6 question marks holding records from 6 fields listed above
         sql = "INSERT INTO chiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10)
-                VALUES (?,?,?,?,?,?,?,?,?,?);"
+                VALUES (?,?,?,?,?,?);"
 
         # records of critical values depending in the degrees of freedom on the first field
         records = [(1,2.706, 3.841, 5.024, 6.635, 10.828),
