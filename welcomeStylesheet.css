@@ -1,15 +1,17 @@
+/* heading wil be center with colour green  */
 h1{
   text-align: center;
   color: green;
 
 }
-
+/* The demo question will be at the center of the page  */
 .demoQuestion{
   text-align: center;
 }
 
+/* the demo reject question will be at the center of the page with colour red */
 .demoReject{
   text-align: center;
   color: red;
-  
+
 }
