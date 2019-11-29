@@ -1,4 +1,5 @@
+/* homepage, heading will be on the left of the page with colour blue */
 h1 {
-  text-align: center;
+  text-align: left;
   color: blue;
 }
