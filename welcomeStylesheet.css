@@ -1,0 +1,14 @@
+h1{
+  text-align: center;
+  color: green;
+
+}
+
+.demoQuestion{
+  text-align: center;
+}
+
+.demoReject{
+  text-align: center;
+  color: red;
+}
