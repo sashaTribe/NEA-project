@@ -92,7 +92,7 @@ def query_observedValues():
         observedFreqValues = """ SELECT observedFreqColumns.obFreqColID, observedFreqRow.obFreqRowID,observedFreqTable.Value
 s"""
 
-
+# Here is where I insert the records into the ChiSquare_distribution table but at the moment I am only going up to the 10% field
 def insert_critical_values():
     with sqlite3.connect("NEA_sqlite_create.sql") as db:
         cursor = db.cursor()
@@ -102,8 +102,7 @@ def insert_critical_values():
         df = result[0]
         sql = "INSERT INTO chiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10)
                 VALUES (?,?,?,?,?,?,?,?,?,?);"
-        records = [(1,7.879,6.635,5.024,3.841,2.706,0.158,0.0039,0.001,0.001),
-                    (2,10.6,9.21,7.378,5.991,4.605)(1,2.706, 3.841, 5.024, 6.635, 10.828),
+        records = [(1,2.706, 3.841, 5.024, 6.635, 10.828),
  (2, 4.605, 5.991, 7.378, 9.210, 13.816),
  (3, 6.251, 7.815, 9.348, 11.345, 16.266),
  (4, 7.779, 9.488, 11.143, 13.277, 18.467),
