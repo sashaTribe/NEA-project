@@ -136,3 +136,9 @@ def insert_critical_values():
 
 # below would be used toinset multiple records at once
  cursor.executemany(sql,records)
+
+# calls the create_database procedure
+ create_database()
+
+# calls the insert_critical_values procedure
+ insert_critical_values()
