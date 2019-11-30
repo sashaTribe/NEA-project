@@ -133,3 +133,6 @@ def insert_critical_values():
  (26, 35.563, 38.885, 41.923, 45.642, 54.052),
  (27, 36.741, 40.113, 43.195, 46.963, 55.476),
  (28, 37.916, 41.337, 44.461, 48.278, 56.892)]
+
+# below would be used toinset multiple records at once
+ cursor.executemany(sql,records)
