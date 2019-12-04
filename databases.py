@@ -98,12 +98,12 @@ s"""
 def insert_critical_values():
     with sqlite3.connect("NEA_sqlite_create.sql") as db:
         cursor = db.cursor()
-        sql = """SELECT df FROM chiSquare_distribution;"""
+        sql = """SELECT df FROM ChiSquare_distribution;"""
         cursor.execute(sql)
         result = cursor.fetchone()
         df = result[0]
         # 6 question marks holding records from 6 fields listed above
-        sql = """INSERT INTO chiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10) VALUES (?,?,?,?,?,?);"""
+        sql = """INSERT INTO ChiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10) VALUES (?,?,?,?,?,?);"""
 
         # records of critical values depending in the degrees of freedom on the first field
         records = [(1,2.706, 3.841, 5.024, 6.635, 10.828),
@@ -148,5 +148,15 @@ insert_critical_values()
 def list_critcalValues():
     with sqlite3.connect("NEA_sqlite_create") as db:
         cursor = db.cursor()
-        sql = """ SELECT
+        sql = """ SELECT ChiSquare_Distribution.df, ChiSquare_Distribution.sig0_5,ChiSquare_Distribution.sig1,ChiSquare_Distribution.sig2_5,ChiSquare_Distribution.sig5,ChiSquare_Distribution.sig10
+                  FROM ChiSquare_Distribution
         """
+
+        # cursor.execute used to run the sql to print out table
+        cursor.execute(sql)
+
+        # use fetchall to extract result of the sql command as a tuple
+        rows = cursor.fetchall()
+
+# Flask part where data is sent to html file
+        return render_template("distributionTablePage.html", rows=rows)
