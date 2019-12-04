@@ -101,8 +101,7 @@ def insert_critical_values():
         result = cursor.fetchone()
         df = result[0]
         # 6 question marks holding records from 6 fields listed above
-        sql = "INSERT INTO chiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10)
-                VALUES (?,?,?,?,?,?);"
+        sql = """INSERT INTO chiSquare_Distribution(df, sig0_5,sig1,sig2_5,sig5,sig10) VALUES (?,?,?,?,?,?);"""
 
         # records of critical values depending in the degrees of freedom on the first field
         records = [(1,2.706, 3.841, 5.024, 6.635, 10.828),
@@ -135,10 +134,10 @@ def insert_critical_values():
  (28, 37.916, 41.337, 44.461, 48.278, 56.892)]
 
 # below would be used toinset multiple records at once
- cursor.executemany(sql,records)
+    cursor.executemany(sql,records)
 
 # calls the create_database procedure
- create_database()
+create_database()
 
 # calls the insert_critical_values procedure
- insert_critical_values()
+insert_critical_values()
