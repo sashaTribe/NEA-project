@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import flask
+from flask import , render_template
 
 def create_database():
     with sqlite3.connect("NEA_sqlite_create.sql") as db:
@@ -98,7 +98,7 @@ s"""
 def insert_critical_values():
     with sqlite3.connect("NEA_sqlite_create.sql") as db:
         cursor = db.cursor()
-        sql = """SELECT df FROM ChiSquare_distribution;"""
+        sql = """SELECT df FROM chiSquare_distribution;"""
         cursor.execute(sql)
         result = cursor.fetchone()
         df = result[0]
@@ -143,3 +143,10 @@ create_database()
 
 # calls the insert_critical_values procedure
 insert_critical_values()
+
+@app.route('/list')
+def list_critcalValues():
+    with sqlite3.connect("NEA_sqlite_create") as db:
+        cursor = db.cursor()
+        sql = """ SELECT
+        """
