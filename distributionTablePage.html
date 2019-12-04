@@ -2,9 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Chi-square distribution table</title>
   </head>
   <body>
-
+    <h1>Chi Square distribution Table</h1>
+      {% for row in rows %}
+        <li>{{row[0]}} {{row[1]}} {{row[2]}} {{row[3]}} {{row[4]}} {{row[5]}} {{row[6]}}</li>
+      {% endfor %}
   </body>
 </html>
