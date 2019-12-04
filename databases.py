@@ -1,5 +1,7 @@
 import sqlite3
 
+from flask import flask
+
 def create_database():
     with sqlite3.connect("NEA_sqlite_create.sql") as db:
         cursor = db.cursor()
