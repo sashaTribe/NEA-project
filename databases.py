@@ -86,7 +86,7 @@ def create_database():
     cursor.execute(userTable)
     cursor.execute(chiSquareDistribution)
 
-create_database()
+
 
 def query_observedValues():
     with sqlite3.connect("NEA_sqlite_create.sql"):
