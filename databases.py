@@ -1,9 +1,9 @@
 import sqlite3
 
-from flask import , render_template
+from flask import Flask , render_template
 
 def create_database():
-    with sqlite3.connect("NEA_sqlite_create.sql") as db:
+    with sqlite3.connect("NEA_sqlite_create.db") as db:
         cursor = db.cursor()
 
 #table describing the contents of each user's table
@@ -146,7 +146,7 @@ insert_critical_values()
 
 @app.route('/list')
 def list_critcalValues():
-    with sqlite3.connect("NEA_sqlite_create") as db:
+    with sqlite3.connect("NEA_sqlite_create.db") as db:
         cursor = db.cursor()
         sql = """ SELECT ChiSquare_Distribution.df, ChiSquare_Distribution.sig0_5,ChiSquare_Distribution.sig1,ChiSquare_Distribution.sig2_5,ChiSquare_Distribution.sig5,ChiSquare_Distribution.sig10
                   FROM ChiSquare_Distribution
