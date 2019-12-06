@@ -141,8 +141,8 @@ def insert_critical_values():
 # calls the create_database procedure
 create_database()
 
-# calls the insert_critical_values procedure
-insert_critical_values()
+# calls the query_observedValues procedure
+query_observedValues()
 
 @app.route('/list')
 def list_critcalValues():
